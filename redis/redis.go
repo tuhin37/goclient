@@ -80,17 +80,12 @@ func (r *RedisClient) GetWithTTL(key string) (string, int, bool) {
 }
 
 // delete key
-func Unset(key string) error {
-	// Create a new Redis client with default options.
-	client := redis.NewClient(&redis.Options{})
-
+func (r *RedisClient) Unset(key string) error {
 	// Use the client to send the DEL command to Redis.
-	err := client.Del(key).Err()
+	err := r.client.Del(key).Err()
 	if err != nil {
 		return err
 	}
-
-	// fmt.Printf("Key '%s' deleted from Redis.\n", key)
 	return nil
 }
 
