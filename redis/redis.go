@@ -97,6 +97,12 @@ func (r *RedisClient) Push(queue string, value string) error {
 	return err
 }
 
+func (r *RedisClient) PushWIthTTL(queue string, value string, ttlSeconds int) error {
+	err := r.client.LPush(queue, value).Err()
+	r.client.Expire(queue, time.Duration(ttlSeconds)*time.Second)
+	return err
+}
+
 // pop
 func (r *RedisClient) Pop(queue string) (string, error) {
 	result, err := r.client.RPop(queue).Result()
