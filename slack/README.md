@@ -15,7 +15,7 @@ import "github.com/tuhin37/goclient/slack"
 ## 3. Create slack client
 
 ```go
-slackClient := slack.NewSlackClient("https://hooks.slack.com/services/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", "#hypd-invites", "Jhon Doe")
+slackClient := slack.NewSlackClient("https://hooks.slack.com/services/T057****P9A/B0****J5Q1W/y27QVOnLPPyOsSqn70******", "#hypd-invites", "Jhon Doe")
 ```
 
 ## 4. Send plain text
